@@ -57,7 +57,7 @@
             <label class="label" for="username">
                 <span class="label-text">Username</span>
             </label>
-            <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" />
+            <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" required />
             {#if 'username' in formErrors}
             <label class="label" for="username">
                 <span class="label-text-alt text-red-500">{formErrors['username'].message}</span>
@@ -69,7 +69,7 @@
             <label class="label" for="email">
                 <span class="label-text">Email</span>
             </label>
-            <input type="email" name="email" placeholder="john@example.com" class="input input-bordered w-full" required />
+            <input type="email" name="email" placeholder="johndong@example.com" class="input input-bordered w-full" required />
             {#if 'email' in formErrors}
             <label class="label" for="email">
                 <span class="label-text-alt text-red-500">{formErrors['email'].message}</span>
@@ -90,7 +90,7 @@
         </div>
 
         <div class="form-control w-full">
-            <label class="label" for="password">
+            <label class="label" for="password-confirmation">
                 <span class="label-text">Confirm Password</span>
             </label>
             <input type="password" name="password-confirmation" placeholder="" class="input input-bordered w-full" required />
