@@ -5,7 +5,7 @@
   let formErrors = {};
 
   function postSignUp() {
-    goto('/jobs/new');
+    goto('/test');
   }
 
   async function createUser(evt) {

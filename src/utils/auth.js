@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { writable } from 'svelte/store';
 
@@ -5,8 +6,8 @@ function isTokenValid () {
     const { subscribe, set } = writable(false);
     return {
       subscribe,
-      signout: () => set( () => false),
-      signin:  () => set( () => true )
+      signout: () => set(false),
+      signin:  () => set(true),
     }
   }
 
@@ -19,7 +20,7 @@ const emptyAuth = {
 
 export function logOut() {
   localStorage.setItem("auth", JSON.stringify(emptyAuth));
-  isValidToken.signout()
+  isValidToken.signout();
   return true
 }
 
