@@ -7,7 +7,7 @@ function isTokenValid () {
     return {
       subscribe,
       signout: () => set(false),
-      signin:  () => set(true),
+      signin:  () => set(true)
     }
   }
 
@@ -89,7 +89,7 @@ export async function authenticateUser(username, password) {
         identity: username,
         password
       })
-    }
+    } 
   );
 
   const res = await resp.json();
