@@ -14,11 +14,11 @@
 		};
 
 		const res = await authenticateUser(userData.username, userData.password);
-
 		if (res.success) {
 			postSignIn();
 		} else {
-			throw 'Autenthication failed. (Username and/or password incorrect';
+			console.log(res);
+			alert(res.res.message);
 		}
 	}
 </script>
