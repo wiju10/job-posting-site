@@ -38,7 +38,6 @@
 			if (res.success) {
 				postSignUp();
 			} else {
-				console.log(res);
 				throw 'Sign up succeeded but authentication failed';
 			}
 		} else {
