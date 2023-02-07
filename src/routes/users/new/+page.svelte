@@ -47,6 +47,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Sign up | Jobz</title>
+</svelte:head>
+
 <h1 class="text-center text-xl">Create an Account to Post a Job</h1>
 <div class="text-center">
 	<a class="link-hover italic text-xs" href="/login"

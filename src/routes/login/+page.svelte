@@ -23,6 +23,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Login | Jobz</title>
+</svelte:head>
+
 <h1 class="text-center text-xl">Sign-In</h1>
 <div class="flex justify-center items-center mt-8">
 	<form on:submit|preventDefault={loginUser} class="w-1/3">

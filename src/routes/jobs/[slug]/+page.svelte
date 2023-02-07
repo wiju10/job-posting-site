@@ -1,9 +1,37 @@
 <script>
+	import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 	import humanize from 'humanize-plus';
 	import SvelteMarkdown from 'svelte-markdown';
+	import { getTokenFromLocalStorage, getUserId } from '../../../utils/auth';
 	export let data;
+	import { goto } from '$app/navigation';
+
+	async function deleteJob() {
+		if (window.confirm('Are you sure?')) {
+			const jobData = {
+				id: null
+			};
+
+			const resp = await fetch(
+				PUBLIC_BACKEND_BASE_URL + `/api/collections/jobs/records/${data.job.id}`,
+				{
+					method: 'DELETE',
+					mode: 'cors',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: getTokenFromLocalStorage()
+					},
+					body: JSON.stringify(jobData)
+				}
+			);
+			goto('/');
+		}
+	}
 </script>
 
+<svelte:head>
+	<title>Job Details | Jobz</title>
+</svelte:head>
 <div class="mt-10">
 	<div class="flex">
 		<div class="flex-1">
@@ -12,6 +40,10 @@
 		</div>
 	</div>
 
+	{#if getUserId() == data.job.user}
+		<button on:click={goto(`./${data.job.id}/edit`)}>Edit Job</button>
+		<button on:click={deleteJob}>Delete Job</button>
+	{/if}
 	<div class="flex flex-row w-full mt-8">
 		<div class="basis-2/3 prose max-w-none w-full">
 			<h2 class="text-xl font-thin">Description</h2>
