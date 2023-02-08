@@ -6,7 +6,7 @@
 <svelte:head>
 	<title>Jobz</title>
 </svelte:head>
-<h1 class="text-center text-6xl font-bold">Find Your Next Job</h1>
+<h1 class="text-center text-1xl font-bold">Find Your Next Job</h1>
 
 <div class="overflow-x-auto w-full">
 	{#each data.jobs as job}

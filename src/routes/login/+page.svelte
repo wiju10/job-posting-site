@@ -1,11 +1,8 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { alerts } from '../../../../../day14/myapp/src/utils/alerts';
 	import { authenticateUser } from '../../utils/auth';
 	let formErrors = {};
-
-	function postSignIn() {
-		goto('/');
-	}
 
 	async function loginUser(evt) {
 		const userData = {
@@ -15,10 +12,10 @@
 
 		const res = await authenticateUser(userData.username, userData.password);
 		if (res.success) {
-			postSignIn();
+			goto('/');
 		} else {
-			console.log(res);
-			alert(res.res.message);
+			alerts.setAlert('Login failed due to incorrect username/password.', 'error');
+			setTimeout(() => alerts.clearAlert(), 1000);
 		}
 	}
 </script>

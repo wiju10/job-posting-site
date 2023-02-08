@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import { isLoggedIn, isValidToken } from '../../utils/auth.js';
 	import { logOut } from '../../utils/auth.js';
 
