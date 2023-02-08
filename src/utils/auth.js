@@ -1,6 +1,6 @@
-import { goto } from '$app/navigation';
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { writable } from 'svelte/store';
+import { alerts } from './alerts';
 
 function isTokenValid () {
     const { subscribe, set } = writable(false);
@@ -21,6 +21,7 @@ const emptyAuth = {
 export function logOut() {
   localStorage.setItem("auth", JSON.stringify(emptyAuth));
   isValidToken.signout();
+  alerts.setAlert("Logged out successfully", "success")
   return true
 }
 
