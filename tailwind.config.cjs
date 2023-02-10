@@ -9,7 +9,7 @@ module.exports = {
     require('@tailwindcss/typography'),
   ],
   daisyui: {
-    themes: ["cmyk", "dracula"],
+    themes: ["dark","light"],
     darkTheme: "dracula",
   }
 }

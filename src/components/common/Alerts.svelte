@@ -1,28 +1,43 @@
 <script>
 	import { alerts } from '../../utils/alerts';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	let alertType = null;
 	let alertMessage = null;
 
+	// setting our local alertType and alertMessage whenever alerts.setAlert is called
+	$: if ($alerts.type && $alerts.message) {
+		alertType = $alerts.type;
+		alertMessage = $alerts.message;
+	}
+
+	function setAlertNull() {
+		alertType = $alerts.type;
+		alertMessage = $alerts.message;
+	}
+	// reset
 	function resetAlerts() {
+		console.log('Reset alerts called');
 		if ($alerts.message && $alerts.type) {
+			console.log('3');
+			// our local variable will get set immediately from the code at the top with $:. once navigation happens, we clear the alerts store. but our local variable is not yet cleared so it still shows on the page
 			alerts.clearAlert();
+			setTimeout(setAlertNull, 1000);
 		} else {
+			console.log('2');
+			// on subsequent page navigations, we set our local variables to null so the alert div element gets hidden
 			alertType = $alerts.type;
 			alertMessage = $alerts.message;
 		}
 	}
 
-	$: if (alerts.message && $alerts.type) {
-		alertType = $alerts.type;
-		alertMessage = $alerts.message;
-	}
+	// this gets called as soon as navigation happens
 	afterNavigate(() => resetAlerts());
 </script>
 
 {#if alertMessage}
-	<div class="alert alert-{alertType} shadow-lg">
+	<div class="hidden alert-error alert-success alert-warning" />
+	<div class="alert shadow-lg alert-{alertType} ">
 		<div>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

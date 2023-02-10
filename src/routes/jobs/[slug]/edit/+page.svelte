@@ -45,49 +45,79 @@
 			<label class="label" for="title">
 				<span class="label-text">Title</span>
 			</label>
-			<input type="text" name="title" class="input input-bordered w-full" />
+			<input type="text" name="title" class="input input-bordered w-full" value={data.job.title} />
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="minAnnualCompensation">
 				<span class="label-text">Minimum Annual Compensation</span>
 			</label>
-			<input type="number" name="minAnnualCompensation" class="input input-bordered w-full" />
+			<input
+				type="number"
+				name="minAnnualCompensation"
+				class="input input-bordered w-full"
+				value={data.job.minAnnualCompensation}
+			/>
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="maxAnnualCompensation">
 				<span class="label-text">Maximum Annual Compensation</span>
 			</label>
-			<input type="number" name="maxAnnualCompensation" class="input input-bordered w-full" />
+			<input
+				type="number"
+				name="maxAnnualCompensation"
+				class="input input-bordered w-full"
+				value={data.job.maxAnnualCompensation}
+			/>
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="description">
 				<span class="label-text">Description</span>
 			</label>
-			<input type="text" name="description" class="input input-bordered w-full" />
+			<input
+				type="text"
+				name="description"
+				class="input input-bordered w-full"
+				value={data.job.description}
+			/>
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="location">
 				<span class="label-text">Location</span>
 			</label>
-			<input type="text" name="location" class="input input-bordered w-full" />
+			<input
+				type="text"
+				name="location"
+				class="input input-bordered w-full"
+				value={data.job.location}
+			/>
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="employer">
 				<span class="label-text">Employer</span>
 			</label>
-			<input type="text" name="employer" class="input input-bordered w-full" />
+			<input
+				type="text"
+				name="employer"
+				class="input input-bordered w-full"
+				value={data.job.employer}
+			/>
 		</div>
 
 		<div class="form-control w-full">
 			<label class="label" for="requirements">
 				<span class="label-text">Requirements</span>
 			</label>
-			<textarea class="textarea textarea-bordered h-64" name="requirements" placeholder="" />
+			<textarea
+				class="textarea textarea-bordered h-64"
+				name="requirements"
+				placeholder=""
+				value={data.job.requirements}
+			/>
 		</div>
 
 		<div class="form-control w-full">
@@ -98,6 +128,7 @@
 				class="textarea textarea-bordered h-64"
 				name="applicationInstructions"
 				placeholder=""
+				value={data.job.requirements}
 			/>
 		</div>
 

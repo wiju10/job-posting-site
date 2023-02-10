@@ -32,6 +32,10 @@
 <svelte:head>
 	<title>Job Details | Jobz</title>
 </svelte:head>
+{#if getUserId() == data.job.user}
+	<button class="btn btn-outline" on:click={goto(`./${data.job.id}/edit`)}>Edit Job</button>
+	<button class="btn btn-outline" on:click={deleteJob}>Delete Job</button>
+{/if}
 <div class="mt-10">
 	<div class="flex">
 		<div class="flex-1">
@@ -40,10 +44,6 @@
 		</div>
 	</div>
 
-	{#if getUserId() == data.job.user}
-		<button on:click={goto(`./${data.job.id}/edit`)}>Edit Job</button>
-		<button on:click={deleteJob}>Delete Job</button>
-	{/if}
 	<div class="flex flex-row w-full mt-8">
 		<div class="basis-2/3 prose max-w-none w-full">
 			<h2 class="text-xl font-thin">Description</h2>

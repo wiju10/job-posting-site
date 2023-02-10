@@ -1,22 +1,30 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { alerts } from '../../../../../day14/myapp/src/utils/alerts';
+	import { alerts } from '../../utils/alerts';
 	import { authenticateUser } from '../../utils/auth';
+
 	let formErrors = {};
+	let loadStatus = false;
 
 	async function loginUser(evt) {
+		loadStatus = true;
+
 		const userData = {
 			username: evt.target['username'].value,
 			password: evt.target['password'].value
 		};
 
 		const res = await authenticateUser(userData.username, userData.password);
+
 		if (res.success) {
+			alerts.setAlert('Login successful!', 'success');
 			goto('/');
 		} else {
 			alerts.setAlert('Login failed due to incorrect username/password.', 'error');
 			setTimeout(() => alerts.clearAlert(), 1000);
 		}
+
+		loadStatus = false;
 	}
 </script>
 
@@ -64,7 +72,7 @@
 		</div>
 
 		<div class="form-control w-full mt-4">
-			<button class="btn btn-md">Login</button>
+			<button class="btn btn-md {loadStatus ? 'loading' : ''}">Login</button>
 		</div>
 	</form>
 </div>
